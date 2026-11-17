@@ -1,6 +1,6 @@
 import streamlit as st
 import numpy as np
-import pandas as pd
+
 
 # Set page layout and title
 st.set_page_config(page_title="Python Syllabus", page_icon="🐍", layout="wide")
@@ -150,29 +150,18 @@ elif choice == "Unit III: Functions, Scope & Recursion":
         st.caption("Base case: `n <= 1` returns `1`. Recursive step: `n * factorial(n - 1)`.")
 
 # ---------------------------------------------------------
-# UNIT IV: Introduction to NumPy & Pandas
+# UNIT IV: Introduction to NumPy 
 # ---------------------------------------------------------
-elif choice == "Unit IV: Introduction to NumPy & Pandas":
-    st.header("Unit IV: Introduction to NumPy & Pandas")
-    col_np, col_pd = st.columns(2)
+elif choice == "Unit IV: Introduction to NumPy":
+    st.header("Unit IV: Introduction to NumPy")
 
-    with col_np:
-        st.subheader("1. NumPy")
-        st.write("Fast multi-dimensional arrays & vectorized math operations.")
-        multiplier = st.slider("Multiply NumPy array `[10, 20, 30, 40]` by:", 1, 10, 2)
-        arr = np.array([10, 20, 30, 40])
-        st.code(f"arr = np.array([10, 20, 30, 40])\narr * {multiplier}  # Output: {arr * multiplier}")
+    st.subheader("NumPy (Numerical Python)")
+    st.write("Fast multi-dimensional arrays & vectorized math operations.")
+    multiplier = st.slider("Multiply NumPy array `[10, 20, 30, 40]` by:", 1, 10, 2)
+    arr = np.array([10, 20, 30, 40])
+    st.code(f"arr = np.array([10, 20, 30, 40])\narr * {multiplier}  # Output: {arr * multiplier}")
 
-    with col_pd:
-        st.subheader("2. Pandas")
-        st.write("Data manipulation and analysis using labeled **DataFrames**.")
-        df = pd.DataFrame({
-            "Student": ["Aarav", "Diya", "Rohan"],
-            "Score": [88, 94, 79],
-            "Passed": [True, True, True]
-        })
-        st.dataframe(df, use_container_width=True, hide_index=True)
-
+   
 # ---------------------------------------------------------
 # INTERACTIVE QUIZ MODULE
 # ---------------------------------------------------------
@@ -206,14 +195,15 @@ elif choice == "Interactive Syllabus Quiz":
         quiz_score += 1
 
     q4 = st.radio(
-        "4. [Unit IV] Which Python library is specifically designed for tabular DataFrames?",
-        ["NumPy", "Pandas", "math", "random"],
+        "4. [Unit IV] Which Python library is designed for fast numerical arrays and vectorized math?",
+        ["NumPy", "math", "random", "csv"],
         index=None
     )
-    if q4 == "Pandas":
+    if q4 == "NumPy":
         quiz_score += 1
 
     if st.button("Submit Answers"):
+        
         st.subheader(f"Your Final Score: {quiz_score} / 4")
         if quiz_score == 4:
             st.balloons()

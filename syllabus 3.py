@@ -1,9 +1,8 @@
 import streamlit as st
 import numpy as np
 
-
 # Set page layout and title
-st.set_page_config(page_title="Python Syllabus", page_icon="🐍", layout="wide")
+st.set_page_config(page_title="Python Helper", page_icon="🐍", layout="wide")
 
 st.title("🐍 Python Study Companion & Quiz Hub")
 st.write("Welcome! This tool helps you review concepts and test your knowledge")
@@ -16,7 +15,7 @@ choice = st.sidebar.radio(
         "Unit I: Introduction & Data Types",
         "Unit II: Control & Logic",
         "Unit III: Functions, Scope & Recursion",
-        "Unit IV: Introduction to NumPy & Pandas",
+        "Unit IV: Introduction to NumPy",
         "Interactive Syllabus Quiz"
     ]
 )
@@ -95,12 +94,10 @@ elif choice == "Unit II: Control & Logic":
 
 # ---------------------------------------------------------
 # UNIT III: Functions, Scope & Recursion
-# Concepts: Functions, Strings, Scope of Variables, Recursion
 # ---------------------------------------------------------
 elif choice == "Unit III: Functions, Scope & Recursion":
     st.header("Unit III: Functions, Scope & Recursion")
 
-    # 1. Functions & Strings
     def analyze_text(text):
         char_count = len(text)
         word_count = len(text.split())
@@ -120,7 +117,6 @@ elif choice == "Unit III: Functions, Scope & Recursion":
 
     st.markdown("---")
 
-    # 2. Scope of Variables & Recursion
     col_scope, col_rec = st.columns(2)
 
     with col_scope:
@@ -150,7 +146,7 @@ elif choice == "Unit III: Functions, Scope & Recursion":
         st.caption("Base case: `n <= 1` returns `1`. Recursive step: `n * factorial(n - 1)`.")
 
 # ---------------------------------------------------------
-# UNIT IV: Introduction to NumPy 
+# UNIT IV: Introduction to NumPy
 # ---------------------------------------------------------
 elif choice == "Unit IV: Introduction to NumPy":
     st.header("Unit IV: Introduction to NumPy")
@@ -161,12 +157,11 @@ elif choice == "Unit IV: Introduction to NumPy":
     arr = np.array([10, 20, 30, 40])
     st.code(f"arr = np.array([10, 20, 30, 40])\narr * {multiplier}  # Output: {arr * multiplier}")
 
-   
 # ---------------------------------------------------------
 # INTERACTIVE QUIZ MODULE
 # ---------------------------------------------------------
 elif choice == "Interactive Syllabus Quiz":
-    st.header("📝 Python Syllabus Knowledge Check")
+    st.header("📝 Python Knowledge Check")
 
     quiz_score = 0
 
@@ -203,7 +198,6 @@ elif choice == "Interactive Syllabus Quiz":
         quiz_score += 1
 
     if st.button("Submit Answers"):
-
         st.subheader(f"Your Final Score: {quiz_score} / 4")
         if quiz_score == 4:
             st.balloons()
